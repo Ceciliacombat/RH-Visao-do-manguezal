@@ -2,6 +2,7 @@
 
 
  <img src="./visao_do_manguezal/static/images/logo.png" alt="Logo" Width="200">
+
 ## Sobre o Projeto
 
 Desenvolvimento de um site que faciite a organização de funcionarios em uma empresa, sistema de RH. 
@@ -39,12 +40,46 @@ Certifique-se de ter o Python e o Virtualenv instalados em sua máquina. Você t
 
       No macOS/Linux: source venv/bin/activate
 
-3. **Instale as Dependências**
+3. ## Instalação das Dependências
 
-      Instale as dependências do projeto listadas no arquivo requirements.txt: 
+Crie e ative o ambiente virtual:
 
-      pip install -r requirements.txt
+```bash
+python -m venv .venv
+```
 
+Windows:
+
+```bash
+.venv\Scripts\activate
+```
+
+Instale as dependências do projeto:
+
+```bash
+pip install flask flask-sqlalchemy werkzeug jinja2 reportlab python-dotenv
+```
+
+Ou instale a partir do arquivo requirements:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Dependências Utilizadas
+
+- Flask
+- Flask-SQLAlchemy
+- Werkzeug
+- Jinja2
+- ReportLab
+- Python-Dotenv
+
+## Executando o Projeto
+
+```bash
+python main.py
+```
 4. **Configuração do Banco de Dados**
 
       Configure o banco de dados conforme necessário. Execute as migrações para criar as tabelas no banco de dados:
