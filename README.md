@@ -1,7 +1,7 @@
 # Restaurante Visão do Manguezal
 
 
-<img src="./restaurante/static/images/rodape/logo-rodape.png" alt="Logo" width="200">
+ <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" width="200">
 
 ## Sobre o Projeto
 
