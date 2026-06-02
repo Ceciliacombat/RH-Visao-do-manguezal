@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>
+Advertência
+</title>
+
+<style>
+
+@page{
+
+    size:A4;
+
+    margin:3cm 2.5cm;
+}
+
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    color:#222;
+
+    font-size:14px;
+
+    line-height:1.9;
+
+    margin:0;
+}
+
+/* TOPO */
+
+.topo{
+
+    text-align:center;
+
+    margin-bottom:60px;
+}
+
+.topo h1{
+
+    margin:0;
+
+    font-size:28px;
+
+    letter-spacing:1px;
+}
+
+.topo p{
+
+    margin-top:8px;
+
+    font-size:14px;
+}
+
+/* TITULO */
+
+.titulo{
+
+    text-align:center;
+
+    margin-bottom:50px;
+}
+
+.titulo h2{
+
+    margin:0;
+
+    font-size:22px;
+
+    font-weight:bold;
+}
+
+/* TEXTO */
+
+.texto{
+
+    text-align:justify;
+
+    text-indent:40px;
+}
+
+.texto p{
+
+    margin-bottom:24px;
+}
+
+/* DATA */
+
+.data{
+
+    margin-top:60px;
+
+    text-align:right;
+
+    font-size:14px;
+}
+
+/* ASSINATURAS */
+
+.assinaturas{
+
+    margin-top:100px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:60px;
+}
+
+.ass-box{
+
+    width:45%;
+
+    text-align:center;
+}
+
+.linha{
+
+    border-top:1px solid #000;
+
+    margin-bottom:10px;
+}
+
+/* RODAPÉ */
+
+.rodape{
+
+    margin-top:70px;
+
+    text-align:center;
+
+    font-size:12px;
+
+    color:#666;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- TOPO -->
+
+<div class="topo">
+
+    <h1>
+        VISÃO DO MANGUEZAL
+    </h1>
+
+    <p>
+        Maragogipinho - Bahia
+    </p>
+
+</div>
+
+<!-- TITULO -->
+
+<div class="titulo">
+
+    <h2>
+        TERMO DE ADVERTÊNCIA
+    </h2>
+
+</div>
+
+<!-- TEXTO -->
+
+<div class="texto">
+
+    <p>
+
+        O(a) colaborador(a)
+        <strong>{{ funcionario.nome }}</strong>,
+        inscrito(a) no CPF sob o nº
+        <strong>{{ funcionario.cpf }}</strong>,
+        recebe nesta data advertência formal
+        em razão do descumprimento das normas
+        internas, procedimentos operacionais
+        ou obrigações relacionadas às atividades exercidas
+        dentro da empresa.
+
+    </p>
+
+    <p>
+
+        A presente advertência possui caráter educativo
+        e preventivo, tendo como finalidade orientar
+        o colaborador quanto à necessidade de observância
+        das normas internas, condutas profissionais
+        e responsabilidades inerentes ao ambiente de trabalho.
+
+    </p>
+
+    <p>
+
+        O colaborador declara estar ciente do conteúdo
+        deste documento e compromete-se a evitar
+        reincidências que possam resultar
+        em medidas disciplinares mais severas,
+        conforme previsto na legislação trabalhista vigente.
+
+    </p>
+
+</div>
+
+<!-- DATA -->
+
+<div class="data">
+
+    {{ cidade }},
+    {{ data_atual }}
+
+</div>
+
+<!-- ASSINATURAS -->
+
+<div class="assinaturas">
+
+    <div class="ass-box">
+
+        <div class="linha"></div>
+
+        REPRESENTANTE DA EMPRESA
+
+    </div>
+
+    <div class="ass-box">
+
+        <div class="linha"></div>
+
+        {{ funcionario.nome }}
+
+    </div>
+
+</div>
+
+<!-- RODAPÉ -->
+
+<div class="rodape">
+
+    Documento interno de uso administrativo
+    e disciplinar da empresa.
+
+</div>
+
+<!-- IMPRESSÃO -->
+
+<script>
+
+window.onload = function(){
+
+    window.print();
+
+}
+
+</script>
+
+</body>
+</html>

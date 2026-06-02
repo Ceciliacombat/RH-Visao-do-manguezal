@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>
+        {% block title %}Dashboard{% endblock %}
+    </title>
+
+    <!-- CSS GLOBAL -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- CSS EXTRA -->
+    {% block extra_css %}
+        <link rel="stylesheet"
+              href="{{ url_for('static', filename='css/dashboard.css') }}">
+    {% endblock %}
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+
+        <!-- LOGO -->
+        <div class="header-left">
+
+            <img src="{{ url_for('static',
+            filename='images/logo.png') }}"
+            alt="Logo">
+
+        </div>
+
+        <!-- MENU -->
+        <div class="header-center">
+
+            <a href="{{ url_for('main.dashboard') }}">
+                DASHBOARD
+            </a>
+
+            <a href="{{ url_for('main.funcionarios') }}">
+                FUNCIONÁRIOS
+            </a>
+
+            <a href="{{ url_for('main.documentos') }}">
+                DOCUMENTOS
+            </a>
+
+            {% if session.get("tipo") == "admin" %}
+
+            <a href="{{ url_for('main.usuarios') }}">
+                USUÁRIOS
+            </a>
+
+            {% endif %}
+
+        </div>
+
+        <!-- SAIR -->
+        <div class="header-right">
+
+            <a href="{{ url_for('main.logout') }}">
+                SAIR
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- CONTEÚDO -->
+    <main class="dashboard-container">
+
+        {% block content %}
+
+        <!-- TOPO -->
+        <section class="dashboard-topo">
+
+            <div>
+
+                <h1>
+                    Olá,
+                    {{ session.get("username", "Usuário") }}
+                </h1>
+
+                <p>
+                    Bem-vindo ao painel do sistema
+                </p>
+
+            </div>
+
+            <span id="data"></span>
+
+        </section>
+
+        <!-- RESUMO -->
+        <section class="cards-resumo">
+
+            <div class="card-info">
+
+                <span>
+                    Funcionários
+                </span>
+
+                <strong>
+                    {{ total_funcionarios }}
+                </strong>
+
+                <p>
+                    Total cadastrados
+                </p>
+
+            </div>
+
+            <div class="card-info">
+
+                <span>
+                    Férias
+                </span>
+
+                <strong>
+                    {{ total_ferias }}
+                </strong>
+
+                <p>
+                    Próximas/vencidas
+                </p>
+
+            </div>
+
+            <div class="card-info">
+
+                <span>
+                    Exames
+                </span>
+
+                <strong>
+                    {{ total_exames }}
+                </strong>
+
+                <p>
+                    Próximos/vencidos
+                </p>
+
+            </div>
+
+            <div class="card-info">
+
+                <span>
+                    Alertas
+                </span>
+
+                <strong>
+                    {{ total_alertas }}
+                </strong>
+
+                <p>
+                    Total de alertas
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- ALERTAS -->
+        <section class="dashboard-grid">
+
+            <!-- EXAMES -->
+            <div class="card-alerta">
+
+                <h2>
+                    ⚠️ Exames Próximos/Vencidos
+                </h2>
+
+                {% if exames_alerta %}
+
+                    {% for f in exames_alerta %}
+
+                    <div class="linha-alerta">
+
+                        <span>
+                            {{ f.nome }}
+                        </span>
+
+                        <strong>
+                            {{ f.data.strftime('%d/%m/%Y') }}
+                        </strong>
+
+                    </div>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <p class="vazio">
+                        Nenhum exame próximo.
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+            <!-- FÉRIAS -->
+            <div class="card-alerta">
+
+                <h2>
+                    🏖️ Férias Próximas/Vencidas
+                </h2>
+
+                {% if ferias_alerta %}
+
+                    {% for f in ferias_alerta %}
+
+                    <div class="linha-alerta">
+
+                        <span>
+                            {{ f.nome }}
+                        </span>
+
+                        <strong>
+                            {{ f.data.strftime('%d/%m/%Y') }}
+                        </strong>
+
+                    </div>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <p class="vazio">
+                        Nenhuma férias próxima.
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+        </section>
+
+        <!-- FUNCIONÁRIOS -->
+        <section class="ultimos-card">
+
+            <div class="topo-tabela">
+
+                <h2>
+                    Funcionários cadastrados
+                </h2>
+
+            </div>
+
+            <div class="tabela-dashboard">
+
+                <!-- HEADER -->
+                <div class="linha-tabela header-tabela">
+
+                    <span>Nome</span>
+                    <span>Entrada</span>
+                    <span>Status</span>
+
+                </div>
+
+                <!-- DADOS -->
+                {% for f in funcionarios[:5] %}
+
+                <div class="linha-tabela">
+
+                    <span>
+                        {{ f.nome }}
+                    </span>
+
+                    <span>
+
+                        {% if f.data_admissao %}
+                            {{ f.data_admissao.strftime('%d/%m/%Y') }}
+                        {% else %}
+                            -
+                        {% endif %}
+
+                    </span>
+
+                    <span class="status">
+
+                        {{ f.status or 'Ativo' }}
+
+                    </span>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </section>
+
+        <!-- DATA -->
+        <script>
+
+            const hoje = new Date();
+
+            document.getElementById("data").innerText =
+                hoje.toLocaleDateString("pt-BR");
+
+        </script>
+
+        {% endblock %}
+
+    </main>
+
+</body>
+</html>

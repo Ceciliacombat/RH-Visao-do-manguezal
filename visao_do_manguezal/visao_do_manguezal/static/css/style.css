@@ -1,0 +1,622 @@
+/* ==================================================
+   RESET GERAL
+================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==================================================
+   ESTILO GLOBAL PADRÃO DO SISTEMA
+================================================== */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d9d9d9;
+    color: #333;
+}
+
+/* ==================================================
+   HEADER / TOPO DO SISTEMA
+================================================== */
+.header {
+    background-color: #b7d7a8;
+    margin: 15px;
+    padding: 15px 30px;
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-left img {
+    height: 70px;
+    display: block;
+}
+
+.header-center {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    flex-wrap: wrap;
+}
+
+.header-center a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.header-center a:hover {
+    background-color: #6aa84f;
+    color: white;
+    transform: scale(1.05);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.header-right a {
+    background-color: #6aa84f;
+    padding: 8px 18px;
+    border-radius: 12px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.header-right a:hover {
+    background-color: #5a9442;
+    transform: scale(1.05);
+}
+
+/* ==================================================
+   CONTEÚDO PADRÃO
+================================================== */
+.cabeçalho {
+    padding: 20px;
+}
+
+/* ==================================================
+   DASHBOARD
+================================================== */
+.dashboard-topo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.dashboard-topo h2 {
+    margin: 0;
+}
+
+.dashboard-topo p {
+    margin-top: 5px;
+    color: #555;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #b7d7a8;
+    padding: 20px;
+    border-radius: 12px;
+    width: 280px;
+}
+
+.card h3 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.card .linha {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.resumo {
+    background-color: #b7d7a8;
+    padding: 20px;
+    border-radius: 12px;
+    width: 350px;
+    margin: 0 auto;
+}
+
+.resumo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.resumo-grid p {
+    margin: 0;
+    font-size: 13px;
+}
+
+.resumo-grid strong {
+    font-size: 18px;
+}
+
+/* ==================================================
+   FUNCIONÁRIOS
+================================================== */
+
+.container-func {
+    width: 95%;
+    margin: 30px auto;
+}
+
+/* TOPO */
+.container-func .topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.container-func .topo h2 {
+    font-size: 28px;
+    color: #1f2937;
+}
+
+/* BOTÃO */
+.container-func .btn-novo {
+    background: #6aa84f;
+    color: white;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.container-func .btn-novo:hover {
+    background: #04871c;
+}
+
+/* BUSCA */
+.container-func .busca {
+    margin-bottom: 20px;
+}
+
+.container-func .busca input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
+    background: white;
+    font-size: 15px;
+    outline: none;
+}
+
+/* TABELA */
+.container-func .tabela {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+/* LINHAS */
+.container-func .linha {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1.2fr 1fr 0.7fr;
+    gap: 15px;
+    padding: 18px 20px;
+    align-items: center;
+    border-bottom: 1px solid #edf0f2;
+}
+
+.container-func .linha:last-child {
+    border-bottom: none;
+}
+
+/* HEADER DA TABELA */
+.container-func .linha.header {
+    background: #f8fafc;
+    font-weight: 700;
+    color: #000000;
+}
+
+/* LINK FUNCIONÁRIO */
+.link-funcionario {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.link-funcionario:hover {
+    color: #0f766e;
+}
+
+/* BADGE */
+.container-func .badge {
+    background: #dcfce7;
+    color: #166534;
+    padding: 7px 12px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.container-func .badge.vazio {
+    background: #f3f4f6;
+    color: #6b7280;
+}
+
+/* STATUS */
+.container-func .status {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.container-func .status.ativo {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    width: fit-content;
+}
+
+.status.ativo {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.status.inativo {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* ==================================================
+   PERFIL FUNCIONÁRIO
+================================================== */
+
+.perfil-container {
+    width: 92%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+/* TOPO */
+.perfil-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.perfil-topo h1 {
+    font-size: 32px;
+    color: #1f2937;
+    margin-bottom: 5px;
+}
+
+.cargo {
+    color: #6b7280;
+    font-size: 15px;
+}
+
+/* BOTÃO VOLTAR */
+.btn-voltar {
+    background: white;
+    color: #1f2937;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.btn-voltar:hover {
+    background: #f3f4f6;
+}
+
+/* CARD */
+.perfil-card,
+.documentos-card {
+    background: white;
+    border-radius: 22px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+/* INFO GRID */
+.perfil-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+/* ITEM */
+.info-item {
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 18px;
+}
+
+.titulo {
+    display: block;
+    color: #6b7280;
+    font-size: 13px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.info-item p {
+    color: #1f2937;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* DOCUMENTOS */
+.documentos-topo {
+    margin-bottom: 20px;
+}
+
+.documentos-topo h2 {
+    color: #1f2937;
+}
+
+.documento-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8fafc;
+    padding: 18px;
+    border-radius: 14px;
+}
+
+.documento-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #f3f4f6;
+
+    padding: 14px 20px;
+
+    border-radius: 14px;
+
+    margin-top: 12px;
+}
+
+.documento-botoes {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-download,
+.btn-imprimir {
+    padding: 10px 18px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.btn-download {
+    background: #00796b;
+    color: white;
+}
+
+.btn-download:hover {
+    background: #005f56;
+}
+
+.btn-imprimir {
+    background: #2563eb;
+    color: white;
+}
+
+.btn-imprimir:hover {
+    background: #1d4ed8;
+}
+
+
+/* DOWNLOAD */
+.btn-download {
+    background: #0f766e;
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.btn-download:hover {
+    background: #115e59;
+}
+
+/* SEM DOC */
+.sem-doc {
+    color: #6b7280;
+}
+
+/* AÇÕES ADMIN */
+.acoes-admin {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+/* EDITAR */
+.btn-editar {
+    background: #0f766e;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.btn-editar:hover {
+    background: #115e59;
+}
+
+/* EXCLUIR */
+.btn-excluir {
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-excluir:hover {
+    background: #b91c1c;
+}
+
+/* ==================================================
+   LOGIN
+================================================== */
+
+body.login-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #a8d5a2, #6ea86e);
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 40px 30px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.login-container .logo {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+.login-container .title {
+    font-weight: 600;
+    font-size: 18px;
+    color: #1b3a1b;
+    margin-bottom: 30px;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-container input {
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.7);
+    transition: 0.3s;
+    width: 100%;
+}
+
+.login-container input:focus {
+    background: #fff;
+    box-shadow: 0 0 0 2px #6ea86e;
+}
+
+.login-container button {
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    background: #4e7d4e;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-container button:hover {
+    background: #3c633c;
+}
+
+/* ==================================================
+   RESPONSIVO
+================================================== */
+
+@media(max-width: 900px) {
+
+    .container-func .linha {
+        grid-template-columns: 1fr;
+    }
+
+    .container-func .linha.header {
+        display: none;
+    }
+
+}
+
+@media(max-width: 768px) {
+
+    .perfil-topo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .acoes-admin {
+        flex-direction: column;
+    }
+
+    .documento-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+}

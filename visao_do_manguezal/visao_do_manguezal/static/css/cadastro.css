@@ -1,0 +1,166 @@
+/* CONTAINER */
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* TOPO */
+
+.topo-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.topo-form h1 {
+    font-size: 38px;
+    color: #1f2937;
+}
+
+/* BOTÃO VOLTAR */
+
+.btn-voltar {
+    text-decoration: none;
+    background: #f3f4f6;
+    color: #111827;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.btn-voltar:hover {
+    background: #e5e7eb;
+}
+
+/* TEXTO */
+
+.container p {
+    color: #6b7280;
+    margin-bottom: 30px;
+}
+
+/* FORM */
+
+.form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.form input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
+    margin-bottom: 20px;
+    font-size: 15px;
+    outline: none;
+}
+
+.form input:focus {
+    border-color: #0f766e;
+}
+
+/* ROW */
+
+.row {
+    display: flex;
+    gap: 20px;
+}
+
+.row div {
+    flex: 1;
+}
+
+/* FILE */
+
+input[type="file"] {
+    background: #f9fafb;
+    padding: 12px;
+}
+
+/* BOTÃO */
+
+.actions {
+    margin-top: 20px;
+}
+
+.actions button {
+    background: #0f766e;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.actions button:hover {
+    background: #115e59;
+}
+
+/* RESPONSIVO */
+
+@media(max-width: 768px){
+
+    .row {
+        flex-direction: column;
+    }
+
+    .topo-form {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+}
+
+/* =================================
+UPLOAD
+================================= */
+
+.form input[type="file"] {
+    width: 100%;
+    background: #f8f9fb;
+    border: 2px dashed #cfd4dc;
+    padding: 18px;
+    border-radius: 14px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* =================================
+BOTÃO SALVAR
+================================= */
+
+.actions {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.actions button {
+    background: #6aa84f;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.actions button:hover {
+    background: #04871c;
+}

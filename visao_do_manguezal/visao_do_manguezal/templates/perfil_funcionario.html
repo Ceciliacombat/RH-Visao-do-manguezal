@@ -1,0 +1,193 @@
+{% extends "dashboard.html" %}
+
+{% block title %}Perfil do Funcionário{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/perfil_funcionario.css') }}">
+
+<div class="perfil-container">
+
+    <!-- TOPO -->
+    <div class="perfil-topo">
+
+        <div>
+            <h1>{{ f.nome }}</h1>
+
+            <p class="cargo">
+                Funcionário
+            </p>
+        </div>
+
+        <a href="{{ url_for('main.funcionarios') }}" class="btn-voltar">
+            ← Voltar
+        </a>
+
+    </div>
+
+    <!-- CARD PRINCIPAL -->
+    <div class="perfil-card">
+
+        <div class="perfil-info">
+
+            <div class="info-item">
+                <span class="titulo">CPF</span>
+                <p>{{ f.cpf or '-' }}</p>
+            </div>
+
+            <div class="info-item">
+                <span class="titulo">Telefone</span>
+                <p>{{ f.telefone or '-' }}</p>
+            </div>
+
+            <div class="info-item">
+                <span class="titulo">E-mail</span>
+                <p>{{ f.email or '-' }}</p>
+            </div>
+
+            <div class="info-item">
+                <span class="titulo">Data de admissão</span>
+
+                <p>
+                    {% if f.data_admissao %}
+                        {{ f.data_admissao.strftime('%d/%m/%Y') }}
+                    {% else %}
+                        -
+                    {% endif %}
+                </p>
+            </div>
+
+            <!-- STATUS -->
+            <div class="info-item">
+                <span class="titulo">Status</span>
+
+                <p>
+                    {{ f.status or 'Ativo' }}
+                </p>
+            </div>
+
+            <!-- FALTAS -->
+            <div class="info-item">
+                <span class="titulo">Faltas</span>
+
+                <p>
+                    {{ f.faltas or 0 }}
+                </p>
+            </div>
+
+            <!-- PRÓXIMAS FÉRIAS -->
+            <div class="info-item">
+                <span class="titulo">Próximas férias</span>
+
+                <p>
+                    {% if proxima_ferias %}
+                        {{ proxima_ferias.strftime('%d/%m/%Y') }}
+                    {% else %}
+                        -
+                    {% endif %}
+                </p>
+            </div>
+
+            <!-- LIMITE FÉRIAS -->
+            <div class="info-item">
+                <span class="titulo">Limite para tirar férias</span>
+
+                <p>
+                    {% if limite_ferias %}
+                        {{ limite_ferias.strftime('%d/%m/%Y') }}
+                    {% else %}
+                        -
+                    {% endif %}
+                </p>
+            </div>
+
+            <!-- EXAME -->
+            <div class="info-item">
+                <span class="titulo">Próximo exame</span>
+
+                <p>
+                    {% if proximo_exame %}
+                        {{ proximo_exame.strftime('%d/%m/%Y') }}
+                    {% else %}
+                        -
+                    {% endif %}
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+  <!-- DOCUMENTOS -->
+<div class="documentos-card">
+
+    <div class="documentos-topo">
+        <h2>Documentos</h2>
+    </div>
+
+    {% if documentos %}
+
+        {% for doc in documentos %}
+
+            <div class="documento-item">
+
+                <span>
+                    📄 {{ doc.nome_arquivo }}
+                </span>
+
+             <div>
+                <a href="{{ url_for('main.arquivo', nome=doc.nome_arquivo) }}"
+                   class="btn-download"
+                   target="_blank">
+                    Abrir
+                </a>
+
+                <a href="{{ url_for('main.imprimir_documento', nome=doc.nome_arquivo) }}"
+                   class="btn-imprimir"
+                   target="_blank">
+                    Imprimir
+                </a>
+             </div>
+
+            </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <p class="sem-doc">
+            Nenhum documento enviado.
+        </p>
+
+    {% endif %}
+
+</div>
+
+    <!-- AÇÕES ADMIN -->
+    {% if session.get("tipo") == "admin" %}
+
+    <div class="acoes-admin">
+
+        <a href="{{ url_for('main.editar_funcionario', id=f.id) }}"
+           class="btn-editar">
+
+            Editar Funcionário
+
+        </a>
+
+        <form action="{{ url_for('main.excluir_funcionario', id=f.id) }}"
+              method="POST">
+
+            <button type="submit" class="btn-excluir">
+                Excluir Funcionário
+            </button>
+
+        </form>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

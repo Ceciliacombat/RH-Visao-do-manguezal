@@ -1,0 +1,314 @@
+/* =========================
+   USUÁRIOS
+========================= */
+
+.container-usuarios{
+
+    width:95%;
+
+    margin:30px auto;
+}
+
+/* TOPO */
+
+.container-usuarios .topo{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+}
+
+.container-usuarios .topo h2{
+
+    font-size:28px;
+
+    color:#000000;
+}
+
+/* BOTÃO NOVO */
+
+.container-usuarios .btn-novo{
+
+    background:#a8d991;
+
+    color:#000000;
+
+    text-decoration:none;
+
+    padding:12px 18px;
+
+    border-radius:12px;
+
+    font-weight:700;
+
+    transition:0.2s;
+}
+
+.container-usuarios .btn-novo:hover{
+
+    background:#95c97c;
+}
+
+/* BUSCA */
+
+.container-usuarios .busca{
+
+    margin-bottom:20px;
+}
+
+.container-usuarios .busca input{
+
+    width:100%;
+
+    padding:14px;
+
+    border-radius:14px;
+
+    border:none;
+
+    background:#f1f5f9;
+
+    font-size:15px;
+
+    outline:none;
+}
+
+.container-usuarios .busca input:focus{
+
+    box-shadow:0 0 0 3px rgba(168,217,145,0.35);
+}
+
+/* TABELA */
+
+.container-usuarios .tabela{
+
+    background:white;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    box-shadow:0 4px 18px rgba(0, 0, 0, 0.05);
+}
+
+/* LINHAS */
+
+.container-usuarios .linha{
+
+    display:grid;
+
+    grid-template-columns:0.5fr 2fr 1fr 1.5fr;
+
+    gap:15px;
+
+    padding:20px;
+
+    align-items:center;
+
+    border-bottom:1px solid #edf2f7;
+}
+
+.container-usuarios .linha:last-child{
+
+    border-bottom:none;
+}
+
+/* HEADER */
+
+.container-usuarios .linha.header{
+
+    background:#f8fafc;
+
+    font-weight:700;
+
+    color:#000000;
+}
+
+/* AÇÕES */
+
+.acoes{
+
+    display:flex;
+
+    gap:10px;
+
+    align-items:center;
+}
+
+/* BOTÃO ALTERAR */
+
+.btn-acao{
+
+    background:#a8d991;
+
+    color:#000000 !important;
+
+    text-decoration:none;
+
+    padding:10px 14px;
+
+    border-radius:12px;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    transition:0.2s;
+}
+
+.btn-acao:hover{
+
+    background:#95c97c;
+}
+
+/* BOTÃO EXCLUIR */
+
+.btn-excluir{
+
+    background:#000000 !important;
+
+    color:white !important;
+
+    border:none;
+
+    padding:10px 14px;
+
+    border-radius:12px;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:0.2s;
+}
+
+.btn-excluir:hover{
+
+    background:#000000 !important;
+}
+
+/* MODAL */
+
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0, 0, 0, 0.35);
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999;
+}
+
+.modal-content{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:24px;
+
+    width:340px;
+
+    text-align:center;
+
+    box-shadow:0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.modal-content p{
+
+    margin-bottom:25px;
+
+    color:#000000;
+
+    font-size:16px;
+}
+
+.modal-actions{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:12px;
+}
+
+.modal-actions button{
+
+    flex:1;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:0.2s;
+}
+
+/* CANCELAR */
+
+.modal-actions button:first-child{
+
+    background:#f1f5f9;
+
+    color:#000000;
+}
+
+.modal-actions button:first-child:hover{
+
+    background:#e2e8f0;
+}
+
+/* EXCLUIR */
+
+.modal-actions .btn-excluir{
+
+    background:#000000 !important;
+
+    color:white !important;
+}
+
+.modal-actions .btn-excluir:hover{
+
+    background:#000000 !important;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:900px){
+
+    .container-usuarios .linha{
+
+        grid-template-columns:1fr;
+    }
+
+    .container-usuarios .linha.header{
+
+        display:none;
+    }
+
+    .acoes{
+
+        flex-direction:column;
+
+        align-items:stretch;
+    }
+
+}

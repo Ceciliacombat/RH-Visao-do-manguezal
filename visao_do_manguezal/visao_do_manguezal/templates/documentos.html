@@ -1,0 +1,204 @@
+{% extends "dashboard.html" %}
+
+{% block title %}Documentos{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/documentos_pagina.css') }}">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="docs-page">
+
+    <!-- TOPO -->
+    <div class="docs-header">
+
+        <div>
+            <h1>Documentos</h1>
+
+        </div>
+
+    </div>
+
+    <!-- PESQUISA -->
+    <div class="docs-search">
+
+        <input
+            type="text"
+            id="pesquisaFuncionario"
+            placeholder="Buscar funcionário..."
+        >
+
+    </div>
+
+    <!-- GRID -->
+    <div class="docs-grid" id="docsGrid">
+
+        {% for f in funcionarios %}
+
+        <div class="docs-card">
+
+            <!-- NOME -->
+            <h2 class="funcionario-nome">
+                {{ f.nome }}
+            </h2>
+
+            <!-- CPF -->
+            <p>
+                CPF: {{ f.cpf or '-' }}
+            </p>
+
+            <!-- CONTRATO -->
+            <form
+                action="{{ url_for('main.gerar_documento') }}"
+                method="POST"
+                target="_blank"
+                class="docs-form"
+            >
+
+                <input
+                    type="hidden"
+                    name="nome"
+                    value="{{ f.nome }}"
+                >
+
+                <input
+                    type="hidden"
+                    name="cpf"
+                    value="{{ f.cpf }}"
+                >
+
+                <input
+                    type="hidden"
+                    name="tipo"
+                    value="contrato"
+                >
+
+                <button
+                    type="submit"
+                    class="docs-btn"
+                >
+                    Gerar Contrato
+                </button>
+
+            </form>
+
+            <!-- LGPD -->
+            <form
+                action="{{ url_for('main.gerar_documento') }}"
+                method="POST"
+                target="_blank"
+                class="docs-form"
+            >
+
+                <input
+                    type="hidden"
+                    name="nome"
+                    value="{{ f.nome }}"
+                >
+
+                <input
+                    type="hidden"
+                    name="cpf"
+                    value="{{ f.cpf }}"
+                >
+
+                <input
+                    type="hidden"
+                    name="tipo"
+                    value="lgpd"
+                >
+
+                <button
+                    type="submit"
+                    class="docs-btn"
+                >
+                   Gerar LGPD
+                </button>
+
+            </form>
+
+            <!-- ADVERTÊNCIA -->
+            <form
+                action="{{ url_for('main.gerar_documento') }}"
+                method="POST"
+                target="_blank"
+                class="docs-form"
+            >
+
+                <input
+                    type="hidden"
+                    name="nome"
+                    value="{{ f.nome }}"
+                >
+
+                <input
+                    type="hidden"
+                    name="cpf"
+                    value="{{ f.cpf }}"
+                >
+
+                <input
+                    type="hidden"
+                    name="tipo"
+                    value="advertencia"
+                >
+
+                <button
+                    type="submit"
+                    class="docs-btn docs-btn-danger"
+                >
+                    Gerar Advertência
+                </button>
+
+            </form>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+<!-- PESQUISA -->
+<script>
+
+const pesquisa =
+document.getElementById("pesquisaFuncionario");
+
+pesquisa.addEventListener("keyup", function() {
+
+    let valor =
+    pesquisa.value.toLowerCase();
+
+    let cards =
+    document.querySelectorAll(".docs-card");
+
+    cards.forEach(card => {
+
+        let nome = card
+            .querySelector(".funcionario-nome")
+            .innerText
+            .toLowerCase();
+
+        if(nome.includes(valor)) {
+
+            card.style.display = "block";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+});
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Alterar Senha
+    </title>
+
+    <!-- CSS GLOBAL -->
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- CSS DA PÁGINA -->
+
+    <style>
+
+    .container-user-form{
+
+        width:500px;
+
+        margin:60px auto;
+
+        background:white;
+
+        padding:40px;
+
+        border-radius:24px;
+
+        box-shadow:0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .topo-user-form{
+
+        display:flex;
+
+        justify-content:space-between;
+
+        align-items:center;
+
+        margin-bottom:35px;
+    }
+
+    .titulo-box{
+
+        text-align:center;
+
+        flex:1;
+    }
+
+    .titulo-box h1{
+
+        margin:0;
+
+        color:#000000;
+
+        font-size:32px;
+    }
+
+    .titulo-box p{
+
+        margin-top:8px;
+
+        color:#000000;
+
+        font-size:15px;
+    }
+
+    .btn-voltar{
+
+        text-decoration:none;
+
+        background:#9acb84;
+
+        color:#000000;
+
+        padding:10px 16px;
+
+        border-radius:12px;
+
+        font-weight:700;
+
+        transition:0.2s;
+    }
+
+    .btn-voltar:hover{
+
+        background:#89bd72;
+    }
+
+    .form-usuario{
+
+        display:flex;
+
+        flex-direction:column;
+    }
+
+    .form-usuario label{
+
+        margin-bottom:10px;
+
+        font-weight:700;
+
+        color:#000000;
+    }
+
+    .form-usuario input{
+
+        padding:14px;
+
+        border:none;
+
+        border-radius:14px;
+
+        background:#f1f5f9;
+
+        margin-bottom:25px;
+
+        font-size:15px;
+
+        outline:none;
+    }
+
+    .actions-user button{
+
+        width:100%;
+
+        padding:15px;
+
+        border:none;
+
+        border-radius:14px;
+
+        background:#9acb84;
+
+        color:#000000;
+
+        font-size:15px;
+
+        font-weight:700;
+
+        cursor:pointer;
+
+        transition:0.2s;
+    }
+
+    .actions-user button:hover{
+
+        background:#89bd72;
+    }
+
+    .mensagem-erro{
+
+        background:#ffe5e5;
+
+        color:#b42318;
+
+        padding:14px;
+
+        border-radius:12px;
+
+        margin-bottom:20px;
+
+        text-align:center;
+    }
+
+    @media(max-width:700px){
+
+        .container-user-form{
+
+            width:90%;
+
+            padding:25px;
+        }
+
+        .topo-user-form{
+
+            flex-direction:column;
+
+            gap:20px;
+        }
+
+    }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <div class="header-left">
+
+            <img src="{{ url_for('static', filename='images/logo.png') }}"
+                 alt="Logo">
+
+        </div>
+
+        <div class="header-center">
+
+            <a href="{{ url_for('main.dashboard') }}">
+                DASHBOARD
+            </a>
+
+            <a href="{{ url_for('main.funcionarios') }}">
+                FUNCIONÁRIOS
+            </a>
+
+            <a href="{{ url_for('main.usuarios') }}">
+                USUÁRIOS
+            </a>
+
+            <a href="{{ url_for('main.documentos') }}">
+                DOCUMENTOS
+            </a>
+
+        </div>
+
+        <div class="header-right">
+
+            <a href="{{ url_for('main.logout') }}">
+                SAIR
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- CONTAINER -->
+
+    <div class="container-user-form">
+
+        <!-- TOPO -->
+
+        <div class="topo-user-form">
+
+            <a href="{{ url_for('main.usuarios') }}"
+               class="btn-voltar">
+
+               ← Voltar
+
+            </a>
+
+            <div class="titulo-box">
+
+                <h1>
+                    Alterar Senha
+                </h1>
+
+                <p>
+
+                    Usuário:
+                    <strong>
+                        {{ usuario.username }}
+                    </strong>
+
+                </p>
+
+            </div>
+
+            <div style="width:80px;"></div>
+
+        </div>
+
+        <!-- ERRO -->
+
+        {% if erro %}
+
+            <div class="mensagem-erro">
+
+                {{ erro }}
+
+            </div>
+
+        {% endif %}
+
+        <!-- FORM -->
+
+        <form method="POST"
+              class="form-usuario">
+
+            <label for="senha">
+
+                Nova senha
+
+            </label>
+
+            <input type="password"
+                   id="senha"
+                   name="senha"
+                   placeholder="Digite a nova senha"
+                   required>
+
+            <div class="actions-user">
+
+                <button type="submit">
+
+                    SALVAR NOVA SENHA
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

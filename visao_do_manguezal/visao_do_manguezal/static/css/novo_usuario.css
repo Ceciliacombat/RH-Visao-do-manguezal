@@ -1,0 +1,99 @@
+.container-user-form {
+    width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* TOPO */
+.topo-user-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.titulo-box h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+    color: #1f2937;
+}
+
+.titulo-box p {
+    color: #6b7280;
+    font-size: 18px;
+}
+
+/* BOTÃO VOLTAR */
+.btn-voltar {
+    background: #f3f4f6;
+    padding: 12px 20px;
+    border-radius: 14px;
+    text-decoration: none;
+    color: #111827;
+    font-weight: bold;
+    border: 1px solid #d1d5db;
+}
+
+/* FORM */
+.form-usuario {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-usuario label {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #1f2937;
+}
+
+.form-usuario input,
+.form-usuario select {
+    width: 100%;
+    padding: 18px;
+    border-radius: 16px;
+    border: 1px solid #d1d5db;
+    font-size: 17px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+/* ROW */
+.row-user {
+    display: flex;
+    gap: 25px;
+}
+
+.row-user > div {
+    flex: 1;
+}
+
+/* BOTÃO */
+.actions-user {
+    margin-top: 20px;
+}
+
+.actions-user button {
+    background: #6aa84f;
+    color: white;
+    border: none;
+    padding: 18px 35px;
+    border-radius: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* ERRO */
+.mensagem-erro {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}

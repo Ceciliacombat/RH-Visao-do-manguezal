@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuários</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/usuarios.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-left">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+        </div>
+
+        <div class="header-center">
+            <a href="{{ url_for('main.dashboard') }}">DASHBOARD</a>
+            <a href="{{ url_for('main.funcionarios') }}">FUNCIONÁRIOS</a>
+            <a href="{{ url_for('main.documentos') }}">DOCUMENTOS</a>
+            <a href="{{ url_for('main.usuarios') }}">USUÁRIOS</a>
+        </div>
+
+        <div class="header-right">
+            <a href="{{ url_for('main.logout') }}">SAIR</a>
+        </div>
+    </div>
+
+    <div class="container-usuarios">
+        <div class="topo">
+            <h2>Usuários do Sistema</h2>
+            <a href="{{ url_for('main.novo_usuario') }}" class="btn-novo">+ Novo Usuário</a>
+        </div>
+
+        <div class="busca">
+            <input type="text" placeholder="Buscar usuário...">
+        </div>
+
+        <div class="tabela">
+            <div class="linha header">
+                <div>ID</div>
+                <div>Usuário</div>
+                <div>Tipo</div>
+                <div>Ações</div>
+            </div>
+
+            {% for usuario in usuarios %}
+            <div class="linha">
+                <div>{{ usuario.id }}</div>
+                <div>{{ usuario.username }}</div>
+                <div>
+                    {% if usuario.tipo == "admin" %}
+                        Admin
+                    {% elif usuario.tipo == "usuario" %}
+                        Usuário
+                    {% endif %}
+                </div>
+                
+                <div>
+                    <div class="acoes">
+                        <a href="{{ url_for('main.alterar_senha', id=usuario.id) }}" class="btn-acao">
+                            Alterar senha
+                        </a>
+
+                        <form action="{{ url_for('main.excluir_usuario', id=usuario.id) }}" method="POST" class="form-excluir">
+                            <button type="button" class="btn-excluir" onclick="abrirModal(this)">
+                                Excluir
+
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div id="modal-excluir" class="modal">
+        <div class="modal-content">
+            <p>Tem certeza que deseja excluir este usuário?</p>
+
+            <div class="modal-actions">
+                <button onclick="fecharModal()">Cancelar</button>
+                <button id="confirmar-excluir" class="btn-excluir">Excluir</button>
+            </div>
+        </div>
+    </div>
+            <script>
+        let formParaExcluir = null;
+
+        function abrirModal(botao) {
+            formParaExcluir = botao.closest("form");
+            document.getElementById("modal-excluir").style.display = "flex";
+        }
+
+        function fecharModal() {
+            document.getElementById("modal-excluir").style.display = "none";
+        }
+
+        document.getElementById("confirmar-excluir").addEventListener("click", function() {
+            if (formParaExcluir) {
+                formParaExcluir.submit();
+            }
+        });
+        </script>
+</body>
+</html>                           

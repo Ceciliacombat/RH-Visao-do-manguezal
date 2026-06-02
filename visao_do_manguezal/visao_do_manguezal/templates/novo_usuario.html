@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Usuário</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/novo_usuario.css') }}">
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-left">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+        </div>
+
+        <div class="header-center">
+            <a href="{{ url_for('main.dashboard') }}">DASHBOARD</a>
+            <a href="{{ url_for('main.funcionarios') }}">FUNCIONÁRIOS</a>
+            <a href="{{ url_for('main.usuarios') }}">USUÁRIOS</a>
+            <a href="{{ url_for('main.documentos') }}">DOCUMENTOS</a>
+        </div>
+
+        <div class="header-right">
+            <a href="{{ url_for('main.logout') }}">SAIR</a>
+        </div>
+    </div>
+
+    <div class="container-user-form">
+        <div class="topo-user-form">
+            <a href="{{ url_for('main.usuarios') }}" class="btn-voltar">← Voltar</a>
+
+            <div class="titulo-box">
+                <h1>Cadastro de Usuário</h1>
+                <p>Preencha as informações para criar um novo acesso ao sistema.</p>
+            </div>
+
+            <div style="width: 80px;"></div>
+        </div>
+
+        {% if erro %}
+            <div class="mensagem-erro">
+                {{ erro }}
+            </div>
+        {% endif %}
+
+        <form method="POST" class="form-usuario">
+            <label for="username">Nome de usuário</label>
+            <input type="text" id="username" name="username" required>
+
+            <div class="row-user">
+                <div>
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" required>
+                </div>
+
+                <div>
+                    <label for="tipo">Tipo de acesso</label>
+                    <select id="tipo" name="tipo" required>
+                        <option value="">Selecione</option>
+                        <option value="admin">Admin</option>
+                        <option value="usuario">Usuário</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="actions-user">
+                <button type="submit">SALVAR</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

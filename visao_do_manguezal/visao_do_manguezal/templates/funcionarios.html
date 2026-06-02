@@ -1,0 +1,100 @@
+{% extends "dashboard.html" %}
+
+{% block title %}Funcionários{% endblock %}
+
+{% block content %}
+
+<div class="container-func">
+
+    <!-- TOPO -->
+    <div class="topo">
+        <h2>Funcionários</h2>
+
+       
+            <a href="{{ url_for('main.novo_funcionario') }}" class="btn-novo">
+                + Novo Funcionário
+            </a>
+       
+        
+    </div>
+
+    <!-- BUSCA -->
+    <div class="busca">
+        <input type="text" id="buscaInput" placeholder="Buscar funcionário...">
+    </div>
+
+    <!-- TABELA -->
+    <div class="tabela">
+
+        <!-- CABEÇALHO -->
+        <div class="linha header">
+            <span>Nome</span>
+            <span>Data de entrada</span>
+            <span>Contato</span>
+            <span>Documentos</span>
+            <span>Status</span>
+        </div>
+
+        <!-- DADOS -->
+        {% for f in funcionarios %}
+        <div class="linha">
+
+            <!-- NOME COM LINK -->
+            <span>
+                <a href="{{ url_for('main.perfil_funcionario', id=f.id) }}"
+                   class="link-funcionario">
+
+                    {{ f.nome }}
+                </a>
+            </span>
+
+            <!-- DATA -->
+            <span>
+                {{ f.data_admissao.strftime('%d/%m/%Y') if f.data_admissao else '-' }}
+            </span>
+
+            <!-- CONTATO -->
+            <span>
+                {{ f.telefone }}<br>
+                <small>{{ f.email }}</small>
+            </span>
+
+            <!-- DOCUMENTOS -->
+            <span>
+                {% if f.documentos %}
+                    <a href="{{ url_for('main.perfil_funcionario', id=f.id) }}" class="badge">
+                        {{ f.documentos|length }} arquivo(s)
+                    </a>
+                {% else %}
+                     <span class="badge vazio">0 arquivos</span>
+                {% endif %}
+            </span>
+
+            <!-- STATUS -->
+            <span class="status {{ f.status|lower }}">
+                {{ f.status or 'Ativo' }}
+            </span>
+
+        </div>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+<!-- 🔍 BUSCA -->
+<script>
+const input = document.getElementById("buscaInput");
+
+input.addEventListener("keyup", function() {
+    let filtro = input.value.toLowerCase();
+    let linhas = document.querySelectorAll(".tabela .linha:not(.header)");
+
+    linhas.forEach(linha => {
+        let texto = linha.innerText.toLowerCase();
+        linha.style.display = texto.includes(filtro) ? "grid" : "none";
+    });
+});
+</script>
+
+{% endblock %}

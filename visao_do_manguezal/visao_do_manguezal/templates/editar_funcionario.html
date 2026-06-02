@@ -1,0 +1,95 @@
+{% extends "dashboard.html" %}
+
+{% block title %}Editar Funcionário{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cadastro.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<main class="container">
+
+    <div class="topo-form">
+        <h1>Editar Funcionário</h1>
+
+        <a href="{{ url_for('main.perfil_funcionario', id=f.id) }}" class="btn-voltar">
+            ← Voltar
+        </a>
+    </div>
+
+    <p>Altere as informações abaixo</p>
+
+    <form class="form" method="POST" enctype="multipart/form-data">
+
+        <label>Nome completo</label>
+        <input type="text" name="nome" value="{{ f.nome }}" required>
+
+        <div class="row">
+
+            <div>
+                <label>Data de entrada</label>
+                <input type="date"
+                       name="data_entrada"
+                       value="{{ f.data_admissao.strftime('%Y-%m-%d') if f.data_admissao else '' }}">
+            </div>
+
+            <div>
+                <label>Telefone</label>
+                <input type="text" name="telefone" value="{{ f.telefone }}" maxlength="15" required>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div>
+                <label>CPF</label>
+                <input type="text" name="cpf" value="{{ f.cpf }}" maxlength="14" required>
+            </div>
+
+            <div>
+                <label>Email</label>
+                <input type="email" name="email" value="{{ f.email }}">
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div>
+                <label>Status</label>
+
+                <select name="status">
+                    <option value="Ativo" {% if f.status == "Ativo" %}selected{% endif %}>
+                        Ativo
+                    </option>
+
+                    <option value="Inativo" {% if f.status == "Inativo" %}selected{% endif %}>
+                        Inativo
+                    </option>
+                </select>
+            </div>
+
+            <div>
+                <label>Faltas</label>
+                <input type="number" name="faltas" value="{{ f.faltas or 0 }}">
+            </div>
+
+        </div>
+
+        <label>Adicionar novo documento</label>
+        <input type="file"
+               name="documentos"
+               multiple
+               accept=".pdf,.jpg,.png">
+
+        <div class="actions">
+            <button type="submit">SALVAR ALTERAÇÕES</button>
+        </div>
+
+    </form>
+
+</main>
+
+{% endblock %}

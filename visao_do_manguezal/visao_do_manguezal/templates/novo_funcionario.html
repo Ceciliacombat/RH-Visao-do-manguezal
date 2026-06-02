@@ -1,0 +1,125 @@
+{% extends "dashboard.html" %}
+
+{% block title %}Novo Funcionário{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cadastro.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<main class="container">
+
+    <!-- TOPO -->
+    <div class="topo-form">
+        <h1>Cadastro do Funcionário</h1>
+
+        <a href="/funcionarios" class="btn-voltar">← Voltar</a>
+    </div>
+
+    <p>Preencha as informações principais abaixo</p>
+
+    <!-- FORM -->
+    <form class="form" method="POST" enctype="multipart/form-data">
+
+        <!-- NOME -->
+        <label>Nome completo</label>
+        <input type="text" name="nome" required>
+
+        <!-- DATA + TELEFONE -->
+        <div class="row">
+
+            <div>
+                <label>Data de entrada</label>
+                <input type="date" name="data_entrada" required>
+            </div>
+
+            <div>
+                <label>Telefone</label>
+                <input type="text" name="telefone" maxlength="15" required>
+            </div>
+
+        </div>
+
+        <!-- CPF + EMAIL -->
+        <div class="row">
+
+            <div>
+                <label>CPF</label>
+                <input type="text" name="cpf" maxlength="14" required>
+            </div>
+
+            <div>
+                <label>Email</label>
+                <input type="email" name="email">
+            </div>
+
+        </div>
+
+        <!-- STATUS + FALTAS -->
+        <div class="row">
+
+            <div>
+                <label>Status</label>
+
+                <select name="status">
+                    <option value="Ativo">Ativo</option>
+                    <option value="Inativo">Inativo</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Faltas</label>
+                <input type="number" name="faltas" value="0">
+            </div>
+
+        </div>
+
+        <!-- DOCUMENTOS -->
+        <label>Anexar Documentos</label>
+
+        <input type="file"
+               name="documentos"
+               accept=".pdf,.jpg,.png"
+               multiple>
+
+        <!-- BOTÃO -->
+        <div class="actions">
+            <button type="submit">SALVAR</button>
+        </div>
+
+    </form>
+
+</main>
+
+<!-- SCRIPT -->
+<script>
+
+document.querySelector('input[name="telefone"]').addEventListener('input', function(e) {
+
+    let v = e.target.value.replace(/\D/g, '');
+
+    if (v.length > 11) v = v.slice(0, 11);
+
+    v = v.replace(/^(\d{2})(\d)/g, '($1) $2');
+    v = v.replace(/(\d{5})(\d)/, '$1-$2');
+
+    e.target.value = v;
+});
+
+document.querySelector('input[name="cpf"]').addEventListener('input', function(e) {
+
+    let v = e.target.value.replace(/\D/g, '');
+
+    if (v.length > 11) v = v.slice(0, 11);
+
+    v = v.replace(/(\d{3})(\d)/, '$1.$2');
+    v = v.replace(/(\d{3})(\d)/, '$1.$2');
+    v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+
+    e.target.value = v;
+});
+
+</script>
+
+{% endblock %}

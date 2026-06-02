@@ -1,0 +1,144 @@
+.dashboard-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 35px auto;
+}
+
+.dashboard-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.dashboard-topo h1 {
+    font-size: 32px;
+    color: #1f2937;
+    margin-bottom: 6px;
+}
+
+.dashboard-topo p {
+    color: #6b7280;
+}
+
+#data {
+    background: #e7f3df;
+    color: #365f2f;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.cards-resumo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.card-info {
+    background: white;
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+    border-left: 6px solid #8fbc7c;
+}
+
+.card-info span {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.card-info strong {
+    display: block;
+    font-size: 34px;
+    color: #1f2937;
+    margin: 8px 0;
+}
+
+.card-info p {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    margin-bottom: 28px;
+}
+
+.card-alerta,
+.ultimos-card {
+    background: #b9dca9;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+.card-alerta h2,
+.ultimos-card h2 {
+    font-size: 21px;
+    color: #1f2937;
+    margin-bottom: 18px;
+}
+
+.linha-alerta {
+    background: rgba(255, 255, 255, 0.45);
+    padding: 13px 15px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #1f2937;
+}
+
+.vazio {
+    color: #374151;
+    background: rgba(255, 255, 255, 0.45);
+    padding: 14px;
+    border-radius: 12px;
+}
+
+.ultimos-card {
+    background: white;
+}
+
+.tabela-dashboard {
+    width: 100%;
+}
+
+.linha-tabela {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    padding: 14px 10px;
+    border-bottom: 1px solid #e5e7eb;
+    align-items: center;
+}
+
+.header-tabela {
+    font-weight: 700;
+    color: #374151;
+}
+
+.status {
+    background: #e7f3df;
+    color: #365f2f;
+    padding: 6px 12px;
+    border-radius: 20px;
+    width: fit-content;
+    font-weight: 600;
+}
+
+@media (max-width: 900px) {
+    .cards-resumo,
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-topo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}

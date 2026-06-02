@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>
+Termo LGPD
+</title>
+
+<style>
+
+@page{
+
+    size:A4;
+
+    margin:3cm 2.5cm;
+}
+
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    color:#222;
+
+    font-size:14px;
+
+    line-height:1.9;
+
+    margin:0;
+}
+
+/* CABEÇALHO */
+
+.topo{
+
+    text-align:center;
+
+    margin-bottom:60px;
+}
+
+.topo h1{
+
+    margin:0;
+
+    font-size:28px;
+
+    letter-spacing:1px;
+}
+
+.topo p{
+
+    margin-top:8px;
+
+    font-size:14px;
+}
+
+/* TÍTULO */
+
+.titulo{
+
+    text-align:center;
+
+    margin-bottom:50px;
+}
+
+.titulo h2{
+
+    margin:0;
+
+    font-size:22px;
+
+    font-weight:bold;
+}
+
+/* TEXTO */
+
+.texto{
+
+    text-align:justify;
+
+    text-indent:40px;
+}
+
+.texto p{
+
+    margin-bottom:24px;
+}
+
+/* DATA */
+
+.data{
+
+    margin-top:60px;
+
+    text-align:right;
+
+    font-size:14px;
+}
+
+/* ASSINATURAS */
+
+.assinaturas{
+
+    margin-top:100px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:60px;
+}
+
+.ass-box{
+
+    width:45%;
+
+    text-align:center;
+}
+
+.linha{
+
+    border-top:1px solid #000;
+
+    margin-bottom:10px;
+}
+
+/* RODAPÉ */
+
+.rodape{
+
+    margin-top:70px;
+
+    text-align:center;
+
+    font-size:12px;
+
+    color:#666;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- TOPO -->
+
+<div class="topo">
+
+    <h1>
+        VISÃO DO MANGUEZAL
+    </h1>
+
+    <p>
+        Maragogipinho - Bahia
+    </p>
+
+</div>
+
+<!-- TITULO -->
+
+<div class="titulo">
+
+    <h2>
+        TERMO DE CONSENTIMENTO PARA
+        TRATAMENTO DE DADOS PESSOAIS
+    </h2>
+
+</div>
+
+<!-- TEXTO -->
+
+<div class="texto">
+
+    <p>
+
+        Eu,
+        <strong>{{ funcionario.nome }}</strong>,
+        inscrito(a) no CPF sob o nº
+        <strong>{{ funcionario.cpf }}</strong>,
+        declaro estar ciente e de acordo com a coleta,
+        armazenamento, utilização, processamento e
+        tratamento dos meus dados pessoais pela empresa
+        <strong>VISÃO DO MANGUEZAL</strong>,
+        para fins relacionados às atividades administrativas,
+        trabalhistas, previdenciárias, fiscais e legais
+        decorrentes da relação profissional estabelecida.
+
+    </p>
+
+    <p>
+
+        O presente consentimento é concedido em conformidade
+        com a Lei Geral de Proteção de Dados Pessoais
+        (Lei nº 13.709/2018 – LGPD),
+        autorizando a empresa a utilizar meus dados
+        exclusivamente para finalidades legítimas,
+        específicas e necessárias à execução das
+        atividades internas e cumprimento das obrigações legais.
+
+    </p>
+
+    <p>
+
+        Declaro ter conhecimento de que meus dados poderão ser
+        compartilhados apenas quando necessário com órgãos públicos,
+        instituições financeiras, contabilidade, medicina do trabalho,
+        sistemas governamentais, prestadores de serviço autorizados
+        e demais entidades estritamente relacionadas às obrigações legais
+        e operacionais da empresa.
+
+    </p>
+
+    <p>
+
+        Estou ciente de que poderei, a qualquer momento,
+        solicitar acesso às informações armazenadas,
+        atualização de dados incorretos,
+        limitação de uso,
+        revogação do consentimento,
+        bem como demais direitos previstos na legislação vigente.
+
+    </p>
+
+    <p>
+
+        Declaro ainda que recebi as informações necessárias
+        sobre a finalidade do tratamento dos dados
+        e autorizo sua utilização de forma livre,
+        informada e inequívoca.
+
+    </p>
+
+</div>
+
+<!-- DATA -->
+
+<div class="data">
+
+    {{ cidade }},
+    {{ data_atual }}
+
+</div>
+
+<!-- ASSINATURAS -->
+
+<div class="assinaturas">
+
+    <div class="ass-box">
+
+        <div class="linha"></div>
+
+        REPRESENTANTE DA EMPRESA
+
+    </div>
+
+    <div class="ass-box">
+
+        <div class="linha"></div>
+
+        {{ funcionario.nome }}
+
+    </div>
+
+</div>
+
+<!-- RODAPÉ -->
+
+<div class="rodape">
+
+    Documento emitido conforme a
+    Lei Geral de Proteção de Dados
+    (Lei nº 13.709/2018).
+
+</div>
+
+<!-- IMPRESSÃO -->
+
+<script>
+
+window.onload = function(){
+
+    window.print();
+
+}
+
+</script>
+
+</body>
+</html>

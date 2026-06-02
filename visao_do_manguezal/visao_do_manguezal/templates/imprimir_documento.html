@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Imprimir Documento</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/imprimir_documento.css') }}">
+</head>
+
+<body>
+
+    <button class="btn-print" onclick="window.print()">
+        Imprimir
+    </button>
+
+    <iframe
+        src="{{ url_for('main.arquivo', nome=nome) }}">
+    </iframe>
+
+</body>
+
+</html>

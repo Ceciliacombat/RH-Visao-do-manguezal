@@ -1,0 +1,100 @@
+/* =========================
+   PÁGINA DOCUMENTOS
+========================= */
+
+.docs-page {
+    padding: 40px;
+}
+
+/* TOPO */
+
+.docs-header {
+    margin-bottom: 40px;
+}
+
+.docs-header h1 {
+    font-size: 32px;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.docs-header p {
+    color: #64748b;
+    font-size: 15px;
+}
+
+/* GRID */
+
+.docs-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(320px, 1fr));
+
+    gap: 25px;
+}
+
+/* CARD */
+
+.docs-card {
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 4px 18px rgba(0,0,0,0.08);
+
+    border: 1px solid #e2e8f0;
+}
+
+.docs-card h2 {
+
+    color: #0f172a;
+
+    font-size: 22px;
+
+    margin-bottom: 10px;
+}
+
+.docs-card p {
+
+    color: #64748b;
+
+    margin-bottom: 20px;
+}
+
+/* FORM */
+
+.docs-form {
+    margin-bottom: 12px;
+}
+
+/* BOTÕES */
+
+.docs-btn {
+
+    width: 100%;
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 14px;
+
+    background: #0f172a;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.docs-btn:hover {
+    background: #1e293b;
+}

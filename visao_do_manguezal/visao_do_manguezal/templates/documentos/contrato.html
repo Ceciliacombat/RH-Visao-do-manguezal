@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>
+Contrato de Trabalho
+</title>
+
+<style>
+
+@page{
+
+    size:A4;
+
+    margin:3cm 2.5cm;
+}
+
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    color:#222;
+
+    font-size:14px;
+
+    line-height:1.9;
+
+    margin:0;
+}
+
+/* TOPO */
+
+.topo{
+
+    text-align:center;
+
+    margin-bottom:60px;
+}
+
+.topo h1{
+
+    margin:0;
+
+    font-size:28px;
+
+    letter-spacing:1px;
+}
+
+.topo p{
+
+    margin-top:8px;
+
+    font-size:14px;
+}
+
+/* TÍTULO */
+
+.titulo{
+
+    text-align:center;
+
+    margin-bottom:50px;
+}
+
+.titulo h2{
+
+    margin:0;
+
+    font-size:22px;
+
+    font-weight:bold;
+}
+
+/* TEXTO */
+
+.texto{
+
+    text-align:justify;
+
+    text-indent:40px;
+}
+
+.texto p{
+
+    margin-bottom:24px;
+}
+
+/* DATA */
+
+.data{
+
+    margin-top:60px;
+
+    text-align:right;
+
+    font-size:14px;
+}
+
+/* ASSINATURAS */
+
+.assinaturas{
+
+    margin-top:100px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:60px;
+}
+
+.ass-box{
+
+    width:45%;
+
+    text-align:center;
+}
+
+.linha{
+
+    border-top:1px solid #000;
+
+    margin-bottom:10px;
+}
+
+/* RODAPÉ */
+
+.rodape{
+
+    margin-top:70px;
+
+    text-align:center;
+
+    font-size:12px;
+
+    color:#666;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- TOPO -->
+
+<div class="topo">
+
+    <h1>
+        VISÃO DO MANGUEZAL
+    </h1>
+
+    <p>
+        Maragogipinho - Bahia
+    </p>
+
+</div>
+
+<!-- TITULO -->
+
+<div class="titulo">
+
+    <h2>
+        CONTRATO DE TRABALHO
+    </h2>
+
+</div>
+
+<!-- TEXTO -->
+
+<div class="texto">
+
+    <p>
+
+        Pelo presente instrumento particular,
+        a empresa
+        <strong>VISÃO DO MANGUEZAL</strong>,
+        estabelece vínculo profissional com
+        <strong>{{ funcionario.nome }}</strong>,
+        inscrito(a) no CPF sob o nº
+        <strong>{{ funcionario.cpf }}</strong>,
+        para exercício de atividades profissionais
+        conforme as necessidades operacionais da empresa.
+
+    </p>
+
+    <p>
+
+        O colaborador compromete-se a cumprir
+        as normas internas, horários,
+        responsabilidades funcionais,
+        políticas administrativas e orientações
+        determinadas pela empresa,
+        atuando com ética, responsabilidade
+        e profissionalismo.
+
+    </p>
+
+    <p>
+
+        A empresa compromete-se a garantir
+        os direitos trabalhistas previstos
+        na Consolidação das Leis do Trabalho (CLT),
+        bem como oferecer ambiente adequado
+        para o desempenho das funções exercidas.
+
+    </p>
+
+    <p>
+
+        Ambas as partes declaram ciência
+        das obrigações legais decorrentes
+        da relação profissional,
+        comprometendo-se ao cumprimento
+        integral das disposições previstas
+        na legislação vigente.
+
+    </p>
+
+</div>
+
+<!-- DATA -->
+
+<div class="data">
+
+    {{ cidade }},
+    {{ data_atual }}
+
+</div>
+
+<!-- ASSINATURAS -->
+
+<div class="assinaturas">
+
+    <div class="ass-box">
+
+        <div class="linha"></div>
+
+        REPRESENTANTE DA EMPRESA
+
+    </div>
+
+    <div class="ass-box">
+
+        <div class="linha"></div>
+
+        {{ funcionario.nome }}
+
+    </div>
+
+</div>
+
+<!-- RODAPÉ -->
+
+<div class="rodape">
+
+    Documento emitido para fins administrativos
+    e comprovação de vínculo profissional.
+
+</div>
+
+<!-- IMPRESSÃO -->
+
+<script>
+
+window.onload = function(){
+
+    window.print();
+
+}
+
+</script>
+
+</body>
+</html>
