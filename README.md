@@ -1,8 +1,7 @@
 # Restaurante Visão do Manguezal
 
 
- <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" width="200">
-
+ <img src="./visao_do_manguezal/static/images/logo.png" alt="Logo" Width="200">
 ## Sobre o Projeto
 
 Desenvolvimento de um site que faciite a organização de funcionarios em uma empresa, sistema de RH. 
